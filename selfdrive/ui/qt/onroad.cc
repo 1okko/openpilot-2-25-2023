@@ -377,6 +377,9 @@ void AnnotatedCameraWidget::updateState(const UIState &s) {
   const auto cs = sm["controlsState"].getControlsState();
   const auto car_state = sm["carState"].getCarState();
   const auto car_control = sm["carControl"].getCarControl();
+  const auto radar_state = sm["radarState"].getRadarState();
+  const auto gpsLocationExternal = sm["gpsLocationExternal"].getGpsLocationExternal();
+  const auto ltp = sm["liveTorqueParameters"].getLiveTorqueParameters();
 
   // Handle older routes where vCruiseCluster is not set
   float v_cruise =  cs.getVCruiseCluster() == 0.0 ? cs.getVCruise() : cs.getVCruiseCluster();
