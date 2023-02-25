@@ -1043,7 +1043,7 @@ int AnnotatedCameraWidget::drawDevUiElementRight(QPainter &p, int x, int y, cons
     p.restore();
   }
 
-  return 120;
+  return 110;
 }
 
 int AnnotatedCameraWidget::drawDevUiElementLeft(QPainter &p, int x, int y, const char* value, const char* label, const char* units, QColor &color) {
@@ -1061,7 +1061,7 @@ int AnnotatedCameraWidget::drawDevUiElementLeft(QPainter &p, int x, int y, const
     p.restore();
   }
 
-  return 120;
+  return 110;
 }
 
 void AnnotatedCameraWidget::drawRightDevUi(QPainter &p, int x, int y) {
