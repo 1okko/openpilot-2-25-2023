@@ -171,6 +171,8 @@ typedef struct UIScene {
   int gac_mode, gac_tr, gac_min, gac_max;
 
   bool map_visible;
+  bool dev_ui_enabled;
+  int dev_ui_row;
   int rn_offset;
 } UIScene;
 
