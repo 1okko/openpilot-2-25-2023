@@ -760,7 +760,7 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
   QRect rc2(rect().right() - (bdr_s * 2), bdr_s * 1.5, 184, 202);
   if (devUiEnabled) {
     drawRightDevUi(p, rect().right() - 184 - bdr_s * 2, bdr_s * 2 + rc2.height());
-    drawRightDevUiBorder(p, rect().right() - 184 - bdr_s * 2, bdr_s * 2 + rc2.height());
+    //drawRightDevUiBorder(p, rect().right() - 184 - bdr_s * 2, bdr_s * 2 + rc2.height());
   }
 
   int rn_btn = 0;
