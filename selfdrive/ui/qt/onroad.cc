@@ -1134,9 +1134,9 @@ void AnnotatedCameraWidget::drawRightDevUi(QPainter &p, int x, int y) {
 
     // Red if large steering angle
     // Orange if moderate steering angle
-    if (std::fabs(angleSteers) > 50) {
+    if (std::fabs(angleSteers) > 180) {
       valueColor = QColor(255, 0, 0, 255);
-    } else if (std::fabs(angleSteers) > 30) {
+    } else if (std::fabs(angleSteers) > 90) {
       valueColor = QColor(255, 188, 0, 255);
     }
 
@@ -1171,9 +1171,9 @@ void AnnotatedCameraWidget::drawRightDevUi(QPainter &p, int x, int y) {
     if (madsEnabled && latActive) {
       // Red if large steering angle
       // Orange if moderate steering angle
-      if (std::fabs(angleSteers) > 50) {
+      if (std::fabs(angleSteers) > 180) {
         valueColor = QColor(255, 0, 0, 255);
-      } else if (std::fabs(angleSteers) > 30) {
+      } else if (std::fabs(angleSteers) > 90) {
         valueColor = QColor(255, 188, 0, 255);
       }
 
