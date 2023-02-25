@@ -166,7 +166,6 @@ private:
   int drawNewDevUiElement(QPainter &p, int x, int y, const char* value, const char* label, const char* units, QColor &color);
   void drawNewDevUi1(QPainter &p, int x, int y);
   void drawNewDevUi2(QPainter &p, int x, int y);
-  void drawCenteredText(QPainter &p, int x, int y, const QString &text, QColor color);
   void drawCenteredLeftText(QPainter &p, int x, int y, const QString &text, QColor color);
   // ############################## DEV UI END ##############################
 
