@@ -1188,7 +1188,7 @@ void AnnotatedCameraWidget::drawRightDevUi(QPainter &p, int x, int y) {
 
   // Add Device Memory Usage
   // Unit: Percent
-  /*if (true) {
+  if (true) {
     char val_str[16];
     QColor valueColor = QColor(255, 255, 255, 255);
 
@@ -1200,7 +1200,7 @@ void AnnotatedCameraWidget::drawRightDevUi(QPainter &p, int x, int y) {
 
     rh += drawDevUiElementRight(p, x, ry, val_str, "MEM %", "", valueColor);
     ry = y + rh;
-  }*/
+  }
 
   rh += 25;
   p.setBrush(QColor(0, 0, 0, 0));
