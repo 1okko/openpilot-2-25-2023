@@ -757,7 +757,7 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
   }*/
 
   // ####### 1 COLUMN ########
-  QRect rc2(rect().right() - (bdr_s * 2), bdr_s * 1.5, 184, 132);
+  QRect rc2(rect().right() - (bdr_s * 2), bdr_s * 1.5, 184, 152);
   if (devUiEnabled) {
     drawRightDevUi(p, rect().right() - 184 - bdr_s * 2, bdr_s * 2 + rc2.height());
     //drawRightDevUiBorder(p, rect().right() - 184 - bdr_s * 2, bdr_s * 2 + rc2.height());
@@ -1043,7 +1043,7 @@ int AnnotatedCameraWidget::drawDevUiElementRight(QPainter &p, int x, int y, cons
     p.restore();
   }
 
-  return 130;
+  return 120;
 }
 
 int AnnotatedCameraWidget::drawDevUiElementLeft(QPainter &p, int x, int y, const char* value, const char* label, const char* units, QColor &color) {
@@ -1061,7 +1061,7 @@ int AnnotatedCameraWidget::drawDevUiElementLeft(QPainter &p, int x, int y, const
     p.restore();
   }
 
-  return 130;
+  return 120;
 }
 
 void AnnotatedCameraWidget::drawRightDevUi(QPainter &p, int x, int y) {
