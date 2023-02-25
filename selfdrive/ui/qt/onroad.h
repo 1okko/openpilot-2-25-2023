@@ -157,6 +157,17 @@ private:
   void drawColoredText(QPainter &p, int x, int y, const QString &text, QColor color);
   void drawStandstillTimer(QPainter &p, int x, int y);
 
+  // ############################## DEV UI START ##############################
+  void drawRightDevUi(QPainter &p, int x, int y);
+  void drawRightDevUi2(QPainter &p, int x, int y);
+  void drawRightDevUiBorder(QPainter &p, int x, int y);
+  int drawDevUiElementRight(QPainter &p, int x, int y, const char* value, const char* label, const char* units, QColor &color);
+  int drawDevUiElementLeft(QPainter &p, int x, int y, const char* value, const char* label, const char* units, QColor &color);
+  int drawNewDevUiElement(QPainter &p, int x, int y, const char* value, const char* label, const char* units, QColor &color);
+  void drawNewDevUi1(QPainter &p, int x, int y);
+  void drawNewDevUi2(QPainter &p, int x, int y);
+  // ############################## DEV UI END ##############################
+
   uint64_t last_update_params;
 
   ExperimentalButton *experimental_btn;
