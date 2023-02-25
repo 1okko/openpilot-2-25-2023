@@ -243,6 +243,8 @@ void ui_update_params(UIState *s) {
   s->scene.gac_mode = std::atoi(params.get("GapAdjustCruiseMode").c_str());
   s->scene.gac_min = std::atoi(params.get("GapAdjustCruiseMin").c_str());
   s->scene.gac_max = std::atoi(params.get("GapAdjustCruiseMax").c_str());
+  s->scene.dev_ui_enabled = params.getBool("DevUI");
+  s->scene.dev_ui_row = std::atoi(params.get("DevUIRow").c_str());
 
   if (s->scene.onroadScreenOff > 0) {
     s->scene.osoTimer = s->scene.onroadScreenOff * 60 * UI_FREQ;

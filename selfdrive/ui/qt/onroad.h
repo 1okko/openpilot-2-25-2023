@@ -111,6 +111,31 @@ class AnnotatedCameraWidget : public CameraWidget {
 
   Q_PROPERTY(bool mapVisible MEMBER mapVisible);
 
+  // ############################## DEV UI START ##############################
+  Q_PROPERTY(int lead_status MEMBER lead_status);
+  Q_PROPERTY(float lead_d_rel MEMBER lead_d_rel);
+  Q_PROPERTY(float lead_v_rel MEMBER lead_v_rel);
+  Q_PROPERTY(QString lateralState MEMBER lateralState);
+  Q_PROPERTY(float angleSteers MEMBER angleSteers);
+  Q_PROPERTY(float steerAngleDesired MEMBER steerAngleDesired);
+  Q_PROPERTY(float curvature MEMBER curvature);
+  Q_PROPERTY(float roll MEMBER roll);
+  Q_PROPERTY(int memoryUsagePercent MEMBER memoryUsagePercent);
+  Q_PROPERTY(bool devUiEnabled MEMBER devUiEnabled);
+  Q_PROPERTY(int devUiRow MEMBER devUiRow);
+  Q_PROPERTY(float gpsAccuracy MEMBER gpsAccuracy);
+  Q_PROPERTY(float altitude MEMBER altitude);
+  Q_PROPERTY(float vEgo MEMBER vEgo);
+  Q_PROPERTY(float aEgo MEMBER aEgo);
+  Q_PROPERTY(float steeringTorqueEps MEMBER steeringTorqueEps);
+  Q_PROPERTY(float bearingAccuracyDeg MEMBER bearingAccuracyDeg);
+  Q_PROPERTY(float bearingDeg MEMBER bearingDeg);
+  Q_PROPERTY(bool torquedUseParams MEMBER torquedUseParams);
+  Q_PROPERTY(float latAccelFactorFiltered MEMBER latAccelFactorFiltered);
+  Q_PROPERTY(float frictionCoefficientFiltered MEMBER frictionCoefficientFiltered);
+  Q_PROPERTY(bool liveValid MEMBER liveValid);
+  // ############################## DEV UI END ##############################
+
 public:
   explicit AnnotatedCameraWidget(VisionStreamType type, QWidget* parent = 0);
   void updateState(const UIState &s);
@@ -202,6 +227,30 @@ private:
   int gacTr;
 
   bool mapVisible;
+
+  // ############################## DEV UI START ##############################
+  int lead_status;
+  float lead_d_rel = 0;
+  float lead_v_rel = 0;
+  QString lateralState;
+  float angleSteers = 0;
+  float steerAngleDesired = 0;
+  float curvature;
+  float roll;
+  int memoryUsagePercent;
+  bool devUiEnabled;
+  int devUiRow;
+  float gpsAccuracy;
+  float altitude;
+  float vEgo;
+  float aEgo;
+  float steeringTorqueEps;
+  float bearingAccuracyDeg;
+  float bearingDeg;
+  bool torquedUseParams;
+  float latAccelFactorFiltered;
+  float frictionCoefficientFiltered;
+  bool liveValid;
 
 protected:
   void paintGL() override;
