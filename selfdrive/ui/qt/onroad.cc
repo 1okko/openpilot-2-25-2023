@@ -757,7 +757,7 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
   }*/
 
   // ####### 1 COLUMN ########
-  QRect rc2(rect().right() - (bdr_s * 2), bdr_s * 1.5, 184, 182);
+  QRect rc2(rect().right() - (bdr_s * 2), bdr_s * 1.5, 184, 132);
   if (devUiEnabled) {
     drawRightDevUi(p, rect().right() - 184 - bdr_s * 2, bdr_s * 2 + rc2.height());
     //drawRightDevUiBorder(p, rect().right() - 184 - bdr_s * 2, bdr_s * 2 + rc2.height());
