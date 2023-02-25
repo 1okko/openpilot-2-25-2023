@@ -115,7 +115,7 @@ class AnnotatedCameraWidget : public CameraWidget {
   Q_PROPERTY(int lead_status MEMBER lead_status);
   Q_PROPERTY(float lead_d_rel MEMBER lead_d_rel);
   Q_PROPERTY(float lead_v_rel MEMBER lead_v_rel);
-  //Q_PROPERTY(QString lateralState MEMBER lateralState);
+  Q_PROPERTY(QString lateralState MEMBER lateralState);
   Q_PROPERTY(float angleSteers MEMBER angleSteers);
   Q_PROPERTY(float steerAngleDesired MEMBER steerAngleDesired);
   Q_PROPERTY(float curvature MEMBER curvature);
@@ -244,7 +244,7 @@ private:
   int lead_status;
   float lead_d_rel = 0;
   float lead_v_rel = 0;
-  //QString lateralState;
+  QString lateralState;
   float angleSteers = 0;
   float steerAngleDesired = 0;
   float curvature;

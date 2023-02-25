@@ -445,7 +445,7 @@ void AnnotatedCameraWidget::updateState(const UIState &s) {
   setProperty("lead_d_rel", radar_state.getLeadOne().getDRel());
   setProperty("lead_v_rel", radar_state.getLeadOne().getVRel());
   setProperty("lead_status", radar_state.getLeadOne().getStatus());
-  //setProperty("lateralState", QString::fromStdString(cs.getLateralState()));
+  setProperty("lateralState", QString::fromStdString(cs.getLateralState()));
   setProperty("angleSteers", car_state.getSteeringAngleDeg());
   setProperty("steerAngleDesired", cs.getLateralControlState().getPidState().getSteeringAngleDesiredDeg());
   setProperty("curvature", cs.getCurvature());
@@ -1150,7 +1150,7 @@ void AnnotatedCameraWidget::drawRightDevUi(QPainter &p, int x, int y) {
   // Unit: m/s²
   // Add Desired Steering Angle when using PID
   // Unit: Degrees
-  /*if (lateralState == "torque") {
+  if (lateralState == "torque") {
     char val_str[16];
     QColor valueColor = QColor(255, 255, 255, 255);
 
@@ -1164,8 +1164,7 @@ void AnnotatedCameraWidget::drawRightDevUi(QPainter &p, int x, int y) {
 
     rh += drawDevUiElementRight(p, x, ry, val_str, "ACTUAL LAT", "m/s²", valueColor);
     ry = y + rh;
-  } else {*/
-  if (true) {
+  } else {
     char val_str[16];
     QColor valueColor = QColor(255, 255, 255, 255);
 
@@ -1450,7 +1449,7 @@ void AnnotatedCameraWidget::drawNewDevUi1(QPainter &p, int x, int y) {
   // Unit: m/s²
   // Add Desired Steering Angle when using PID
   // Unit: Degrees
-  /*if (lateralState == "torque") {
+  if (lateralState == "torque") {
     char val_str[16];
     QColor valueColor = QColor(255, 255, 255, 255);
 
@@ -1464,8 +1463,7 @@ void AnnotatedCameraWidget::drawNewDevUi1(QPainter &p, int x, int y) {
 
     rw += drawNewDevUiElement(p, rl, y, val_str, "A.L.", "m/s²", valueColor);
     rl = x + rw;
-  } else {*/
-  if (true) {
+  } else {
     char val_str[16];
     QColor valueColor = QColor(255, 255, 255, 255);
 
