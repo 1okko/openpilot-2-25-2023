@@ -357,26 +357,6 @@ class Controls:
     # All events here should at least have NO_ENTRY and SOFT_DISABLE.
     num_events = len(self.events)
 
-    not_running = {p.name for p in self.sm['managerState'].processes if not p.running and p.shouldBeRunning}
-    if self.sm.rcv_frame['managerState'] and (not_running - IGNORE_PROCESSES):
-      self.events.add(EventName.processNotRunning)
-    else:
-      if not SIMULATION and not self.rk.lagging:
-        if not self.sm.all_alive(self.camera_packets):
-          self.events.add(EventName.cameraMalfunction)
-        elif not self.sm.all_freq_ok(self.camera_packets):
-          self.events.add(EventName.cameraFrameRate)
-    if self.rk.lagging:
-      self.events.add(EventName.controlsdLagging)
-    if len(self.sm['radarState'].radarErrors) or not self.sm.all_checks(['radarState']):
-      self.events.add(EventName.radarFault)
-    if not self.sm.valid['pandaStates']:
-      self.events.add(EventName.usbError)
-    if CS.canTimeout:
-      self.events.add(EventName.canBusMissing)
-    elif not CS.canValid:
-      self.events.add(EventName.canError)
-
     # generic catch-all. ideally, a more specific event should be added above instead
     can_rcv_timeout = self.can_rcv_timeout_counter >= 5
     has_disable_events = self.events.any(ET.NO_ENTRY) and (self.events.any(ET.SOFT_DISABLE) or self.events.any(ET.IMMEDIATE_DISABLE))
@@ -833,6 +813,18 @@ class Controls:
     controlsState.forceDecel = bool(force_decel)
     controlsState.canErrorCounter = self.can_rcv_cum_timeout_counter
     controlsState.experimentalMode = self.experimental_mode
+
+    if Params().get_bool('ToyotaSpeedFix'):
+      if self.v_cruise_kph != 255:
+        controlsState.vCruise = controlsState.vCruise * 1.0330 # Encourage driving at the set speed.
+
+    if Params().get_bool('HKGSpeedFix'):
+      if self.v_cruise_kph != 255:
+        controlsState.vCruise = controlsState.vCruise * 0.992 # Encourage driving at the set speed.
+        
+    if Params().get_bool('HondaPilotSpeedFix'):
+      if self.v_cruise_kph != 255:
+        controlsState.vCruise = controlsState.vCruise * 0.985 # Encourage driving at the set speed.
 
     lat_tuning = self.CP.lateralTuning.which()
     if self.joystick_mode:

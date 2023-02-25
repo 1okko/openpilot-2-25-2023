@@ -74,6 +74,27 @@ TogglesPanel::TogglesPanel(SettingsWindow *parent) : ListWidget(parent) {
       tr("When enabled, pressing the accelerator pedal will disengage sunnypilot."),
       "../assets/offroad/icon_disengage_on_accelerator.svg",
     },
+    {
+      "ToyotaSpeedFix",
+      "Toyota Camry: Cruise Speed Fix",
+      "Boosts the car to drive at the actual set speed. May cause downshifting by the PCM.",
+      "../assets/offroad/icon_openpilot.png",
+      false,
+    },
+    {
+      "HKGSpeedFix",
+      "Hyundai Sonata: Cruise Speed Fix",
+      "Boosts the car to drive at the actual set speed. May cause downshifting by the PCM.",
+      "../assets/offroad/icon_openpilot.png",
+      false,
+    },
+    {
+      "HondaPilotSpeedFix",
+      "Honda Pilot: Cruise Speed Fix",
+      "Boosts the car to drive at the actual set speed. May cause downshifting by the PCM.",
+      "../assets/offroad/icon_openpilot.png",
+      false,
+    },
 #ifdef ENABLE_MAPS
     {
       "NavSettingTime24h",

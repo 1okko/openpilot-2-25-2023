@@ -275,16 +275,6 @@ class CarInterfaceBase(ABC):
                            enable_buttons=(ButtonType.accelCruise, ButtonType.decelCruise)):
     events = Events()
 
-    if cs_out.doorOpen:
-      events.add(EventName.doorOpen)
-    if cs_out.seatbeltUnlatched and cs_out.gearShifter != GearShifter.park:
-      events.add(EventName.seatbeltNotLatched)
-    if cs_out.gearShifter != GearShifter.drive and cs_out.gearShifter not in extra_gears and not \
-            (cs_out.gearShifter == GearShifter.unknown and self.gear_warning < int(0.5/DT_CTRL)):
-      if cs_out.vEgo < 5:
-        events.add(EventName.silentWrongGear)
-      else:
-        events.add(EventName.wrongGear)
     if cs_out.gearShifter == GearShifter.reverse:
       if cs_out.vEgo < 5:
         events.add(EventName.spReverseGear)
@@ -298,19 +288,8 @@ class CarInterfaceBase(ABC):
       events.add(EventName.stockFcw)
     if cs_out.stockAeb:
       events.add(EventName.stockAeb)
-    if cs_out.vEgo > MAX_CTRL_SPEED:
-      events.add(EventName.speedTooHigh)
     if cs_out.cruiseState.nonAdaptive:
       events.add(EventName.wrongCruiseMode)
-    if cs_out.brakeHoldActive and self.CP.openpilotLongitudinalControl:
-      if cs_out.madsEnabled:
-        cs_out.disengageByBrake = True
-      if cs_out.cruiseState.enabled:
-        events.add(EventName.brakeHold)
-      else:
-        events.add(EventName.silentBrakeHold)
-    if cs_out.parkingBrake:
-      events.add(EventName.parkBrake)
     if cs_out.accFaulted:
       events.add(EventName.accFaulted)
     if cs_out.steeringPressed:

@@ -76,8 +76,12 @@ class CarInterface(CarInterfaceBase):
       ret.longitudinalTuning.kpV = [0.25]
       ret.longitudinalTuning.kiV = [0.05]
       ret.longitudinalActuatorDelayUpperBound = 0.5 # s
+    elif ret.enableGasInterceptor:
+      # pedal longitudinal tuning for nidec hondas
+      ret.stoppingDecelRate = 0.2 # avoid harsh braking when entering stopped state
     else:
-      # default longitudinal tuning for all hondas
+      # default longitudinal tuning for nidec hondas
+      ret.stoppingDecelRate = 0.2 # avoid harsh braking when entering stopped state
       ret.longitudinalTuning.kpBP = [0., 5., 35.]
       ret.longitudinalTuning.kpV = [1.2, 0.8, 0.5]
       ret.longitudinalTuning.kiBP = [0., 35.]

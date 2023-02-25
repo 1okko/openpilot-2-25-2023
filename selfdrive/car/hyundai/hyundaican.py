@@ -23,7 +23,7 @@ def create_lkas11(packer, frame, car_fingerprint, apply_steer, steer_req,
                          CAR.ELANTRA_HEV_2021, CAR.SONATA_HYBRID, CAR.KONA_EV, CAR.KONA_HEV, CAR.KONA_EV_2022,
                          CAR.SANTA_FE_2022, CAR.KIA_K5_2021, CAR.IONIQ_HEV_2022, CAR.SANTA_FE_HEV_2022,
                          CAR.SANTA_FE_PHEV_2022, CAR.KIA_STINGER_2022, CAR.KIA_K5_HEV_2020):
-    values["CF_Lkas_LdwsActivemode"] = int(left_lane) + (int(right_lane) << 1)
+    values["CF_Lkas_LdwsActivemode"] = int(left_lane) + (int(right_lane) << 1) if steer_req else 0
     values["CF_Lkas_LdwsOpt_USM"] = 2
 
     # FcwOpt_USM 5 = Orange blinking car + lanes
@@ -32,8 +32,8 @@ def create_lkas11(packer, frame, car_fingerprint, apply_steer, steer_req,
     # FcwOpt_USM 2 = Green car + lanes
     # FcwOpt_USM 1 = White car + lanes
     # FcwOpt_USM 0 = No car + lanes
-    values["CF_Lkas_FcwOpt_USM"] = 2 if steer_req else 2 if blinking_icon else 1 if\
-                                   lateral_paused else 1
+    values["CF_Lkas_FcwOpt_USM"] = 2 if steer_req else 1 if blinking_icon else 0 if\
+                                   lateral_paused else 0
 
     # SysWarning 4 = keep hands on wheel
     # SysWarning 5 = keep hands on wheel (red)
@@ -138,7 +138,7 @@ def create_acc_commands(packer, enabled, accel, upper_jerk, idx, lead_visible, s
     "JerkUpperLimit": upper_jerk, # stock usually is 1.0 but sometimes uses higher values
     "JerkLowerLimit": 5.0, # stock usually is 0.5 but sometimes uses higher values
     "ACCMode": 2 if enabled and long_override else 1 if enabled else 4, # stock will always be 4 instead of 0 after first disengage
-    "ObjGap": 2 if lead_visible else 0, # 5: >30, m, 4: 25-30 m, 3: 20-25 m, 2: < 20 m, 0: no lead
+    "ObjGap": 5 if lead_visible else 0 if long_override else 2 if stopping else 0, # 5: >30, m, 4: 25-30 m, 3: 20-25 m, 2: < 20 m, 0: no lead
   }
   commands.append(packer.make_can_msg("SCC14", 0, scc14_values))
 
@@ -146,9 +146,9 @@ def create_acc_commands(packer, enabled, accel, upper_jerk, idx, lead_visible, s
   # https://github.com/commaai/opendbc/commit/9ddcdb22c4929baf310295e832668e6e7fcfa602
   fca11_values = {
     "CR_FCA_Alive": idx % 0xF,
-    "PAINT1_Status": 0 if escc else 1,
-    "FCA_DrvSetStatus": 0 if escc else 1,
-    "FCA_Status": 0 if escc else 1, # AEB disabled
+    "PAINT1_Status": 0 if escc else 0,
+    "FCA_DrvSetStatus": 0 if escc else 0,
+    "FCA_Status": 0 if escc else 0, # AEB disabled
 
     "FCA_CmdAct": CS.escc_cmd_act,
     "CF_VSM_Warn": CS.escc_aeb_warning,
@@ -172,8 +172,8 @@ def create_acc_opt(packer, escc):
   commands.append(packer.make_can_msg("SCC13", 0, scc13_values))
 
   fca12_values = {
-    "FCA_DrvSetState": 0 if escc else 2,
-    "FCA_USM": 0 if escc else 1, # AEB disabled
+    "FCA_DrvSetState": 0 if escc else 0,
+    "FCA_USM": 0 if escc else 0, # AEB disabled
   }
   commands.append(packer.make_can_msg("FCA12", 0, fca12_values))
 
