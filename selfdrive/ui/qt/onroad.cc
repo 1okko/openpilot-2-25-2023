@@ -1029,10 +1029,10 @@ void AnnotatedCameraWidget::drawCenteredLeftText(QPainter &p, int x, int y, cons
 }
 
 int AnnotatedCameraWidget::drawDevUiElementRight(QPainter &p, int x, int y, const char* value, const char* label, const char* units, QColor &color) {
-  configFont(p, "Inter", 30 * 2, "SemiBold");
+  configFont(p, "Inter", 30 * 2, "Bold");
   drawColoredText(p, x + 92, y + 80, QString(value), color);
 
-  configFont(p, "Inter", 28, "Regular");
+  configFont(p, "Inter", 28, "Bold");
   drawText(p, x + 92, y + 80 + 42, QString(label), 255);
 
   if (strlen(units) > 0) {
@@ -1047,10 +1047,10 @@ int AnnotatedCameraWidget::drawDevUiElementRight(QPainter &p, int x, int y, cons
 }
 
 int AnnotatedCameraWidget::drawDevUiElementLeft(QPainter &p, int x, int y, const char* value, const char* label, const char* units, QColor &color) {
-  configFont(p, "Inter", 30 * 2, "SemiBold");
+  configFont(p, "Inter", 30 * 2, "Bold");
   drawColoredText(p, x + 92, y + 80, QString(value), color);
 
-  configFont(p, "Inter", 28, "Regular");
+  configFont(p, "Inter", 28, "Bold");
   drawText(p, x + 92, y + 80 + 42, QString(label), 255);
 
   if (strlen(units) > 0) {
@@ -1354,10 +1354,10 @@ void AnnotatedCameraWidget::drawRightDevUiBorder(QPainter &p, int x, int y) {
 }
 
 int AnnotatedCameraWidget::drawNewDevUiElement(QPainter &p, int x, int y, const char* value, const char* label, const char* units, QColor &color) {
-  configFont(p, "Inter", 38, "SemiBold");
+  configFont(p, "Inter", 38, "Bold");
   drawCenteredLeftText(p, x, y, QString(label), whiteColor());
 
-  configFont(p, "Inter", 38, "SemiBold");
+  configFont(p, "Inter", 38, "Bold");
   drawCenteredLeftText(p, x + 185, y, QString(value) + " " + QString(units), color);
 
   return 445;
