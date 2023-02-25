@@ -1018,16 +1018,6 @@ void AnnotatedCameraWidget::drawTrunSpeedSign(QPainter &p, QRect rc, const QStri
 }
 
 // ############################## DEV UI START ##############################
-void AnnotatedCameraWidget::drawCenteredText(QPainter &p, int x, int y, const QString &text, QColor color) {
-  QFontMetrics fm(p.font());
-  QRect init_rect = fm.boundingRect(text);
-  QRect real_rect = fm.boundingRect(init_rect, 0, text);
-  real_rect.moveCenter({x, y});
-
-  p.setPen(color);
-  p.drawText(real_rect, Qt::AlignCenter, text);
-}
-
 void AnnotatedCameraWidget::drawCenteredLeftText(QPainter &p, int x, int y, const QString &text, QColor color) {
   QFontMetrics fm(p.font());
   QRect init_rect = fm.boundingRect(text);
