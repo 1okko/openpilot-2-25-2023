@@ -112,7 +112,7 @@ class AnnotatedCameraWidget : public CameraWidget {
   Q_PROPERTY(bool mapVisible MEMBER mapVisible);
 
   // ############################## DEV UI START ##############################
-  Q_PROPERTY(int lead_status MEMBER lead_status);
+  Q_PROPERTY(bool lead_status MEMBER lead_status);
   Q_PROPERTY(float lead_d_rel MEMBER lead_d_rel);
   Q_PROPERTY(float lead_v_rel MEMBER lead_v_rel);
   Q_PROPERTY(QString lateralState MEMBER lateralState);
@@ -241,7 +241,7 @@ private:
   bool mapVisible;
 
   // ############################## DEV UI START ##############################
-  int lead_status;
+  bool lead_status;
   float lead_d_rel = 0;
   float lead_v_rel = 0;
   QString lateralState;
