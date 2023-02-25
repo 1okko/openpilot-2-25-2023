@@ -1755,8 +1755,7 @@ void AnnotatedCameraWidget::drawDriverState(QPainter &painter, const UIState *s)
 
   // base icon
   int x = rightHandDM ? rect().right() -  (btn_size - 24) / 2 - (bdr_s * 2) : (btn_size - 24) / 2 + (bdr_s * 2);
-  x -= scene.rn_offset;
-  int y = rect().bottom() - footer_h / 2;
+  int y = rect().bottom() - footer_h / 2 - scene.rn_offset;
   float opacity = dmActive ? 0.65 : 0.2;
   drawIcon(painter, x, y, dm_img, blackColor(0), opacity);
 
