@@ -174,6 +174,8 @@ typedef struct UIScene {
   bool dev_ui_enabled;
   int dev_ui_row;
   int rn_offset;
+  bool live_torque_toggle;
+  bool custom_torque_toggle;
 } UIScene;
 
 class UIState : public QObject {
