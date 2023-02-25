@@ -169,6 +169,8 @@ typedef struct UIScene {
 
   bool gac;
   int gac_mode, gac_tr, gac_min, gac_max;
+
+  bool map_visible;
 } UIScene;
 
 class UIState : public QObject {

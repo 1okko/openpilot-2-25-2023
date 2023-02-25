@@ -436,6 +436,8 @@ void AnnotatedCameraWidget::updateState(const UIState &s) {
               car_state.getCruiseState().getAvailable());
   setProperty("gacTr", s.scene.gac_tr);
 
+  setProperty("mapVisible", s.scene.map_visible);
+
   // update engageability/experimental mode button
   experimental_btn->updateState(s);
 

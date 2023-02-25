@@ -109,6 +109,8 @@ class AnnotatedCameraWidget : public CameraWidget {
   Q_PROPERTY(bool gac MEMBER gac);
   Q_PROPERTY(int gacTr MEMBER gacTr);
 
+  Q_PROPERTY(bool mapVisible MEMBER mapVisible);
+
 public:
   explicit AnnotatedCameraWidget(VisionStreamType type, QWidget* parent = 0);
   void updateState(const UIState &s);
@@ -198,6 +200,8 @@ private:
 
   bool gac;
   int gacTr;
+
+  bool mapVisible;
 
 protected:
   void paintGL() override;
