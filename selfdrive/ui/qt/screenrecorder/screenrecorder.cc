@@ -100,8 +100,8 @@ void ScreenRecoder::paintEvent(QPaintEvent *event) {
   QPainter p(this);
   p.setRenderHint(QPainter::Antialiasing);
 
-  QPoint center(btn_size / 2 - 20, btn_size / 2 - uiState()->scene.rn_offset);
-  QRect rec_btn(36 - 20, 36 - uiState()->scene.rn_offset, 120, 120);
+  QPoint center(btn_size / 2 - 25, btn_size / 2 + 10 - uiState()->scene.rn_offset);
+  QRect rec_btn(36 - 25, 36 + 10 - uiState()->scene.rn_offset, 120, 120);
 
   p.setOpacity(1.0);
   p.setPen(Qt::NoPen);
