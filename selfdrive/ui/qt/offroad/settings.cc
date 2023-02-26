@@ -76,24 +76,21 @@ TogglesPanel::TogglesPanel(SettingsWindow *parent) : ListWidget(parent) {
     },
     {
       "ToyotaSpeedFix",
-      "Toyota Camry: Cruise Speed Fix",
-      "Boosts the car to drive at the actual set speed. May cause downshifting by the PCM.",
+      tr("Toyota Camry: Cruise Speed Fix"),
+      tr("Boosts the car to drive at the actual set speed. May cause downshifting by the PCM."),
       "../assets/offroad/icon_openpilot.png",
-      false,
     },
     {
       "HKGSpeedFix",
-      "Hyundai Sonata: Cruise Speed Fix",
-      "Boosts the car to drive at the actual set speed. May cause downshifting by the PCM.",
+      tr("Hyundai Sonata: Cruise Speed Fix"),
+      tr("Boosts the car to drive at the actual set speed. May cause downshifting by the PCM."),
       "../assets/offroad/icon_openpilot.png",
-      false,
     },
     {
       "HondaPilotSpeedFix",
-      "Honda Pilot: Cruise Speed Fix",
-      "Boosts the car to drive at the actual set speed. May cause downshifting by the PCM.",
+      tr("Honda Pilot: Cruise Speed Fix"),
+      tr("Boosts the car to drive at the actual set speed. May cause downshifting by the PCM."),
       "../assets/offroad/icon_openpilot.png",
-      false,
     },
 #ifdef ENABLE_MAPS
     {
