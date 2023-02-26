@@ -290,6 +290,13 @@ class CarInterfaceBase(ABC):
       events.add(EventName.stockAeb)
     if cs_out.cruiseState.nonAdaptive:
       events.add(EventName.wrongCruiseMode)
+    if cs_out.brakeHoldActive and self.CP.openpilotLongitudinalControl:
+      if cs_out.madsEnabled:
+        cs_out.disengageByBrake = True
+      if cs_out.cruiseState.enabled:
+        events.add(EventName.brakeHold)
+      else:
+        events.add(EventName.silentBrakeHold)
     if cs_out.accFaulted:
       events.add(EventName.accFaulted)
     if cs_out.steeringPressed:
