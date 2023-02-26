@@ -173,6 +173,7 @@ std::unordered_map<std::string, uint32_t> keys = {
     {"ToyotaSpeedFix", PERSISTENT},
     {"HondaPilotSpeedFix", PERSISTENT},
     {"HKGSpeedFix", PERSISTENT},
+    {"HKGSpeedFixTrue", PERSISTENT},
     {"TrainingVersion", PERSISTENT},
     {"UbloxAvailable", PERSISTENT},
     {"UpdateAvailable", CLEAR_ON_MANAGER_START | CLEAR_ON_IGNITION_ON},

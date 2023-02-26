@@ -82,7 +82,13 @@ TogglesPanel::TogglesPanel(SettingsWindow *parent) : ListWidget(parent) {
     },
     {
       "HKGSpeedFix",
-      tr("Hyundai Sonata: Cruise Speed Fix"),
+      tr("Hyundai Sonata: Cruise Speed Fix: Car"),
+      tr("Boosts the car to drive at the actual set speed. May cause downshifting by the PCM."),
+      "../assets/offroad/icon_openpilot.png",
+    },
+    {
+      "HKGSpeedFixTrue",
+      tr("Hyundai Sonata: Cruise Speed Fix: Actual"),
       tr("Boosts the car to drive at the actual set speed. May cause downshifting by the PCM."),
       "../assets/offroad/icon_openpilot.png",
     },

@@ -820,7 +820,11 @@ class Controls:
 
     if Params().get_bool('HKGSpeedFix'):
       if self.v_cruise_helper.v_cruise_kph != 255:
-        controlsState.vCruise = controlsState.vCruise * 0.992 # Encourage driving at the set speed.
+        controlsState.vCruise = controlsState.vCruise * 0.99 # Encourage driving at the set speed.
+
+    if Params().get_bool('HKGSpeedFixTrue'):
+      if self.v_cruise_helper.v_cruise_kph != 255:
+        controlsState.vCruise = controlsState.vCruise * 1.0065 # Encourage driving at the set speed.
         
     if Params().get_bool('HondaPilotSpeedFix'):
       if self.v_cruise_helper.v_cruise_kph != 255:
