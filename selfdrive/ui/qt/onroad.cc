@@ -1037,7 +1037,7 @@ int AnnotatedCameraWidget::drawDevUiElementRight(QPainter &p, int x, int y, cons
 
   if (strlen(units) > 0) {
     p.save();
-    p.translate(x + 54 + 30 - 3 + 92, y + 37 + 25);
+    p.translate(x + 54 + 30 - 3 + 92 + 30, y + 37 + 25);
     p.rotate(-90);
     drawText(p, 0, 0, QString(units), 255);
     p.restore();
@@ -1198,7 +1198,7 @@ void AnnotatedCameraWidget::drawRightDevUi(QPainter &p, int x, int y) {
 
     snprintf(val_str, sizeof(val_str), "%d%s", (int)memoryUsagePercent, "%");
 
-    rh += drawDevUiElementRight(p, x, ry, val_str, "MEM %", "", valueColor);
+    rh += drawDevUiElementRight(p, x, ry, val_str, "MEMORY", "", valueColor);
     ry = y + rh;
   }
 
