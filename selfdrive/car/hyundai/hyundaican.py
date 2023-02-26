@@ -32,8 +32,7 @@ def create_lkas11(packer, frame, car_fingerprint, apply_steer, steer_req,
     # FcwOpt_USM 2 = Green car + lanes
     # FcwOpt_USM 1 = White car + lanes
     # FcwOpt_USM 0 = No car + lanes
-    values["CF_Lkas_FcwOpt_USM"] = 2 if steer_req else 1 if blinking_icon else 0 if\
-                                   lateral_paused else 0
+    values["CF_Lkas_FcwOpt_USM"] = 2 if steer_req else 0
 
     # SysWarning 4 = keep hands on wheel
     # SysWarning 5 = keep hands on wheel (red)
@@ -138,7 +137,7 @@ def create_acc_commands(packer, enabled, accel, upper_jerk, idx, lead_visible, s
     "JerkUpperLimit": upper_jerk, # stock usually is 1.0 but sometimes uses higher values
     "JerkLowerLimit": 5.0, # stock usually is 0.5 but sometimes uses higher values
     "ACCMode": 2 if enabled and long_override else 1 if enabled else 4, # stock will always be 4 instead of 0 after first disengage
-    "ObjGap": 5 if lead_visible else 0 if long_override else 2 if stopping else 0, # 5: >30, m, 4: 25-30 m, 3: 20-25 m, 2: < 20 m, 0: no lead
+    "ObjGap": 2 if lead_visible else 5 if enabled else 0, # 5: >30, m, 4: 25-30 m, 3: 20-25 m, 2: < 20 m, 0: no lead
   }
   commands.append(packer.make_can_msg("SCC14", 0, scc14_values))
 
