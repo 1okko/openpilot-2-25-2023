@@ -714,7 +714,7 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
 
   // current speed
   if (!hideVEgoUi) {
-    configFont(p, "Inter", 200, "Bold");
+    configFont(p, "Inter", 176, "Bold");
     drawColoredText(p, rect().center().x(), 210, speedStr, brakeLights ? QColor(0xff, 0, 0, 255) : QColor(0xff, 0xff, 0xff, 255));
     configFont(p, "Inter", 66, "Regular");
     drawText(p, rect().center().x(), 290, speedUnit, 200);
@@ -1711,16 +1711,9 @@ void AnnotatedCameraWidget::drawLaneLines(QPainter &painter, const UIState *s) {
       if (acceleration.getZ().size() > 16) {
         acceleration_future = acceleration.getX()[16];  // 2.5 seconds
       }
-      start_hue = 60;
-      // speed up: 120, slow down: 0
-      end_hue = fmax(fmin(start_hue + acceleration_future * 45, 148), 0);
-
-      // FIXME: painter.drawPolygon can be slow if hue is not rounded
-      end_hue = int(end_hue * 100 + 0.5) / 100;
-
-      bg.setColorAt(0.0, QColor::fromHslF(start_hue / 360., 0.97, 0.56, 0.7));
-      bg.setColorAt(0.5, QColor::fromHslF(end_hue / 360., 1.0, 0.68, 0.35));
-      bg.setColorAt(1.0, QColor::fromHslF(end_hue / 360., 1.0, 0.68, 0.0));
+      bg.setColorAt(0.0, QColor::fromHslF(148 / 360., 0.94, 0.51, 0.7));
+      bg.setColorAt(0.5, QColor::fromHslF(112 / 360., 1.0, 0.68, 0.35));
+      bg.setColorAt(1.0, QColor::fromHslF(112 / 360., 1.0, 0.68, 0.0));
     } else {
       bg.setColorAt(0.0, QColor::fromHslF(148 / 360., 0.94, 0.51, 0.7));
       bg.setColorAt(0.5, QColor::fromHslF(112 / 360., 1.0, 0.68, 0.35));
