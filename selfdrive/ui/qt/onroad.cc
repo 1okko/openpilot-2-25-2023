@@ -1697,7 +1697,6 @@ void AnnotatedCameraWidget::drawLaneLines(QPainter &painter, const UIState *s) {
 
   // paint path
   QLinearGradient bg(0, height(), 0, height() / 4);
-  float start_hue, end_hue;
   if (madsEnabled) {
     if (steerOverride && latActive) {
       bg.setColorAt(0, blackColor(80));
