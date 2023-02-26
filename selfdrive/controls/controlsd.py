@@ -815,15 +815,15 @@ class Controls:
     controlsState.experimentalMode = self.experimental_mode
 
     if Params().get_bool('ToyotaSpeedFix'):
-      if self.v_cruise_kph != 255:
+      if self.v_cruise_helper.v_cruise_kph != 255:
         controlsState.vCruise = controlsState.vCruise * 1.0330 # Encourage driving at the set speed.
 
     if Params().get_bool('HKGSpeedFix'):
-      if self.v_cruise_kph != 255:
+      if self.v_cruise_helper.v_cruise_kph != 255:
         controlsState.vCruise = controlsState.vCruise * 0.992 # Encourage driving at the set speed.
         
     if Params().get_bool('HondaPilotSpeedFix'):
-      if self.v_cruise_kph != 255:
+      if self.v_cruise_helper.v_cruise_kph != 255:
         controlsState.vCruise = controlsState.vCruise * 0.985 # Encourage driving at the set speed.
 
     lat_tuning = self.CP.lateralTuning.which()
